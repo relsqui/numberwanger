@@ -27,8 +27,8 @@ tail -f .botfile | $connect_command $server $port | while true; do
     fi
     read line
     line=$(echo "$line" | tr -d "\r\n")
-    if echo "$line" | grep -qi "^ping\b"; then
-        raw $(echo "$line" | sed "s/ping/PONG/i")
+    if echo "$line" | grep -qi "^ping"; then
+        raw "$(echo "$line" | sed "s/ping/PONG/i")"
     elif echo "$line" | grep -qi " PRIVMSG $channel :$nick: source"; then
         raw "PRIVMSG $channel :https://github.com/relsqui/numberwanger"
     elif echo "$line" | grep -qiv " PRIVMSG $channel :.*\b$numberwang\b"; then
