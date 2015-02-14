@@ -7,7 +7,7 @@ raw() { echo "$*" >> .botfile; }
 if $has_key; then read -sp "Channel key? " chankey; fi
 if $use_ssl; then connect_command="ncat --ssl"; else connect_command="nc"; fi
 
-numberwang=$(($RANDOM & 100))
+numberwang=$(($RANDOM % 100))
 log "starting. numberwang is $numberwang"
 
 rm .botfile 2>/dev/null
@@ -35,7 +35,7 @@ tail -f .botfile | $connect_command $server $port | while true; do
         continue
     else
         raw "PRIVMSG $channel :THAT'S NUMBERWANG!"
-        numberwang=$(($RANDOM & 100))
+        numberwang=$(($RANDOM % 100))
         log "numberwang is now $numberwang"
     fi
 done
