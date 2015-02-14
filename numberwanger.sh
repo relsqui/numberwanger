@@ -13,6 +13,8 @@ log "starting. numberwang is $numberwang"
 rm .botfile 2>/dev/null
 mkfifo .botfile
 chmod 600 .botfile
+touch $logfile
+chmod 600 $logfile
 trap "rm .botfile; log 'quitting'" exit term kill
 first_run=true
 
