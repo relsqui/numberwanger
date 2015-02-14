@@ -1,0 +1,7 @@
+nick="nwbot"
+server="irc.freenode.net"
+ssl=true
+port=6697 #probably change this if not using SSL
+channel="#nwtest"
+has_key=false #change to true if channel has a key; don't write the key here
+logfile="log"
